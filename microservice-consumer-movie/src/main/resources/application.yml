@@ -1,0 +1,11 @@
+server:
+  port: 7901
+
+restTemplate:
+  maxTotal: 1000
+  defaultMaxPerRoute: 100
+  readTimeout: 5000
+  connectTimeout: 5000
+
+user:
+  userServicePath: http://localhost:7900/findUser/
