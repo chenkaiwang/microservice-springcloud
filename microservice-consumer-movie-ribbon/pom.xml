@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
-	<artifactId>microservice-consumer-movie</artifactId>
+	<artifactId>microservice-consumer-movie-ribbon</artifactId>
 	<packaging>jar</packaging>
 
 	<properties>
