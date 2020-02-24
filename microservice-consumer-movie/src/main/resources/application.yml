@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: microservice-consumer-movie
 server:
   port: 7901
 
@@ -9,3 +12,14 @@ restTemplate:
 
 user:
   userServicePath: http://localhost:7900/findUser/
+  
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka
+

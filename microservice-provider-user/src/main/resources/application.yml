@@ -2,7 +2,7 @@ server:
   port: 7900
 spring:
   application:
-    name: provider
+    name: microservice-provider-user #全部小写
   jpa:
     generate-ddl: false
     show-sql: true
@@ -24,7 +24,10 @@ logging:
 
 eureka:
   instance:
-    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
   client:
+    healthcheck:
+      enabled: true
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://user:password123@localhost:8761/eureka
