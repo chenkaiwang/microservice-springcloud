@@ -1,0 +1,38 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: microservice-simple-provider-user #全部小写
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema:
+    - classpath:schema.sql
+    data:
+    - classpath:data.sql
+logging:
+  level:
+    root: info
+    org.hibernate: info
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.study: debug
+    
+#测试/info端点
+info:
+  app:
+    name: @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+    java:
+      source: @java.version@
+      target: @java.version@
+
+#测试/health端点,展示详情
+management:
+  endpoint:
+    health:
+      show-details: always
