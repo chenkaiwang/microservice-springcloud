@@ -2,7 +2,7 @@ server:
   port: 8000
 spring:
   application:
-    name: microservice-provider-user #全部小写
+    name: microservice-provider-user-my-metadata #全部小写
   jpa:
     generate-ddl: false
     show-sql: true
@@ -24,10 +24,12 @@ logging:
 
 eureka:
   instance:
-    ##instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
     prefer-ip-address: true
+    metadata-map:
+      #自定义的元数据，key/value都可以随便写
+      mydata: 123
   client:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://user:password123@localhost:8761/eureka
