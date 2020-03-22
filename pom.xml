@@ -41,6 +41,11 @@
         <module>microservice-consumer-movie-feign-hystrix-fallback-stream</module>
         <module>microservice-hystrix-dashboard</module>
         <module>microservice-hystrix-turbine</module>
+        <module>microservice-gateway-zuul</module>
+        <module>microservice-file-upload</module>
+        <module>microservice-gateway-zuul-filter</module>
+        <module>microservice-gateway-zuul-fallback</module>
+        <module>microservice-gateway-zuul-aggregation</module>
     </modules>
 
     <properties>
