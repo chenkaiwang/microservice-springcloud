@@ -4,15 +4,12 @@ import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServl
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableCircuitBreaker
-public class ConsumerMovieApplication {
-
+@EnableHystrixDashboard
+public class DashboardApplication {
 
     @Bean
     public ServletRegistrationBean getServlet() {
@@ -24,14 +21,8 @@ public class ConsumerMovieApplication {
         return registration;
     }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerMovieApplication.class, args);
+        SpringApplication.run(DashboardApplication.class, args);
     }
 
 }
