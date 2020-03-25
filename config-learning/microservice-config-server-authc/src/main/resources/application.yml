@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          #配置Git仓库的地址
+          uri: https://github.com/chenkaiwang/spring-cloud-config-repo
+          repos:
+            simple: https://github.com/chenkaiwang/simple
+            special:
+              pattern: special*/dev*,special*/test*
+              uri: https://github.com/chenkaiwang/special
+              cloneOnStart: true
+  security:
+    user:
+      name: user
+      password: password123
+server:
+  port: 8080
+
+##将以下包的日志级别设为DEBUG，就可打印Config Server请求Git仓库的细节
+#logging:
+#  level:
+#    org.springframework.cloud: DEBUG
+#    org.springframework.boot: DEBUG
