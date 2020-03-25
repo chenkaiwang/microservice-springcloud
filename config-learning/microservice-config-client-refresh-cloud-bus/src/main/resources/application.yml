@@ -1,0 +1,8 @@
+server:
+  port: 8083
+##http://localhost:8081/actuator/refresh 使用POST请求
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

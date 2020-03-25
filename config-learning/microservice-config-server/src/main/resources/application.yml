@@ -21,3 +21,9 @@ logging:
   level:
     org.springframework.cloud: DEBUG
     org.springframework.boot: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
