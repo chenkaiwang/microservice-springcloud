@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          #配置Git仓库的地址
+          uri: https://github.com/chenkaiwang/spring-cloud-config-repo
+          search-paths:
+            - foo  #foo路径
+            - bar  #bar路径
+server:
+  port: 8080

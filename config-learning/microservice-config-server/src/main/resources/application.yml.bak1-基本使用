@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          #配置Git仓库的地址
+          uri: https://github.com/chenkaiwang/spring-cloud-config-repo
+server:
+  port: 8080
+  #在启动Config Server后去请求获取Git Repo中的配置文件时有以下几种请求形式。
+  #/{application}/{profile}[/{label}]
+  #/{application}-{profile}.yml
+  #/{label}/{application}-{profile}.yml
+  #/{application}-{profile}.properties
+  #/{label}/{application}-{profile}.properties
+  #application: 表示微服务名称，即配置的spring.application.name
+  #profile: 表示当前的环境，local、feature、dev、test、prod
+  #label: 表示git仓库分支，feature、develop、test、master，当然默认的话是master
+
+  #访问http://localhost:8080/microservice-foo/dev，
+  #结果中类似https://github.com/chenkaiwang/spring-cloud-config-repo/microservice-foo.yml的URL并不能访问。
+  #这是正常的，因为它并不代表配置文件的实际URL路径，而只是一个标识

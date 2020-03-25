@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: microservice-foo  #对应config server所获取的配置文件的{application}
+  cloud:
+    config:
+      uri: http://localhost:8080 #指定config server的地址，默认是http://localhost:8888
+      profile: dev  #对应config server所获取的配置文件中的{profile}
+      label: master  #指定Git仓库的分支，对应config server所获取配置文件的{label}，默认是master
+
+##以上配置在bootstrap.yml，而不是application.yml。如果配置在application.yml中，该部分就不能正常工作。
+#例如，config client会连接spring.cloud.config.uri的默认值是http://localhost:8888，而非配置的http://localhost:8080
+##和主应用程序加载application.*(yml或properties)中的属性不同，引导上下文加载bootstrap.*中的配置。
+##配置在bootstrap.*中的属性有更高的优先级，因此默认情况下它们不能被本地配置覆盖。
